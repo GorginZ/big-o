@@ -11,52 +11,29 @@ export class BubbleSort extends Component {
 
     this.state = {
       collection: [],
-      inputCollection: "",
+      // inputCollection: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // getSortedItterationsData = () => {
-  //   const temp = 0;
-  //   const inputCollection = this.state.inputCollection
-  //     .split(",")
-  //     .map((n) => parseInt(n, 10));
-
-  //   console.log(inputCollection.length);
-  //   for (var j = 0; j <= inputCollection.length - 2; j++)
-  //    {
-  //     console.log("first loop");
-  //     for (var i = 0; i <= inputCollection.Length - 2; i++) {
-  //       console.log("inner loop");
-  //       if (inputCollection[i] > inputCollection[i + 1]) {
-  //         console.log("conditional");
-  //         temp = inputCollection[i + 1];
-  //         inputCollection[i + 1] = inputCollection[i];
-  //         inputCollection[i] = temp;
-  //         this.state.collection.concat([inputCollection]);
-  //         console.log(this.state.collection + "state");
-  //       }
-  //     }
-  //   }
-  //   // .then((response) => response.json())
-  //   // this.setState({ collection: inputCollection });
-  // };
-
-  getSortedItterationsData = () => {
+  componentDidMount = () => {
     const temp = 0;
-    const inputCollection = this.state.inputCollection
-      .split(",")
-      .map((n) => parseInt(n, 10));
+    const ARRAY_LENGTH = 50;
+    const inputCollection = Array.from(Array(ARRAY_LENGTH)).map(
+      (x) => Math.random() * 100
+    );
 
+    console.log(inputCollection);
+    this.state.collection.push([...inputCollection]);
     for (var j = 0; j <= inputCollection.length - 2; j++) {
       for (var i = 0; i <= inputCollection.length - 2; i++) {
         if (inputCollection[i] > inputCollection[i + 1]) {
           const temp = inputCollection[i + 1];
           inputCollection[i + 1] = inputCollection[i];
           inputCollection[i] = temp;
-          console.log(inputCollection);
           this.state.collection.push([...inputCollection]);
+          this.setState({collection: this.state.collection});
         }
       }
     }
@@ -89,20 +66,6 @@ export class BubbleSort extends Component {
                   className="graphElement"
                   data={this.state.collection[currentItteration]}
                 ></Graph>
-
-                <div className="inputField">
-                  <input
-                    className="inputField"
-                    placeholder=""
-                    onChange={this.handleChange}
-                  ></input>
-                  <button
-                    className="button"
-                    onClick={this.getSortedItterationsData}
-                  >
-                    Get Sorted Collection
-                  </button>
-                </div>
               </div>
               <p aria-live="polite">
                 Current itteration: <strong>{currentItteration}</strong>
