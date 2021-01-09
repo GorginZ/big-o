@@ -1,4 +1,3 @@
-
 // import { Event, event, timers } from "jquery";
 import React, { Component } from "react";
 import Graph from "./Graph";
@@ -11,30 +10,59 @@ export class BubbleSort extends Component {
     super(props);
 
     this.state = {
-      collection: [[]],
+      collection: [],
       inputCollection: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // getSortedItterationsData = () => {
+  //   const temp = 0;
+  //   const inputCollection = this.state.inputCollection
+  //     .split(",")
+  //     .map((n) => parseInt(n, 10));
+
+  //   console.log(inputCollection.length);
+  //   for (var j = 0; j <= inputCollection.length - 2; j++)
+  //    {
+  //     console.log("first loop");
+  //     for (var i = 0; i <= inputCollection.Length - 2; i++) {
+  //       console.log("inner loop");
+  //       if (inputCollection[i] > inputCollection[i + 1]) {
+  //         console.log("conditional");
+  //         temp = inputCollection[i + 1];
+  //         inputCollection[i + 1] = inputCollection[i];
+  //         inputCollection[i] = temp;
+  //         this.state.collection.concat([inputCollection]);
+  //         console.log(this.state.collection + "state");
+  //       }
+  //     }
+  //   }
+  //   // .then((response) => response.json())
+  //   // this.setState({ collection: inputCollection });
+  // };
+
   getSortedItterationsData = () => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      // body: JSON.stringify({ "Collection": {inputCollection: this.state.inputCollection }}),
-      body: JSON.stringify(this.state.inputCollection),
-    };
-    fetch("sorting", requestOptions)
-      .then((response) => response.json())
-      .then((data) => this.setState({ collection: data }));
+    const temp = 0;
+    const inputCollection = this.state.inputCollection
+      .split(",")
+      .map((n) => parseInt(n, 10));
+
+    for (var j = 0; j <= inputCollection.length - 2; j++) {
+      for (var i = 0; i <= inputCollection.length - 2; i++) {
+        if (inputCollection[i] > inputCollection[i + 1]) {
+          const temp = inputCollection[i + 1];
+          inputCollection[i + 1] = inputCollection[i];
+          inputCollection[i] = temp;
+          console.log(inputCollection);
+          this.state.collection.push([...inputCollection]);
+        }
+      }
+    }
+    console.log(this.state.collection);
   };
 
-  async populateCollection() {
-    const response = await fetch("sorter");
-    const data = await response.json();
-    this.setState({ collection: data });
-  }
   handleChange = (event) => {
     this.state.inputCollection = event.target.value;
   };
