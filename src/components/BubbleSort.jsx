@@ -46,7 +46,7 @@ export class BubbleSort extends Component {
 
   render() {
     return (
-      <Timer>
+      <Timer maxItteration={this.state.collection.length}>
         <TimerContext.Consumer>
           {(currentItteration) => (
             <>

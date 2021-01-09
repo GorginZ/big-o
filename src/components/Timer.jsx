@@ -6,6 +6,9 @@ export const TimerContext = React.createContext(0);
 const Timer = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const { maxItteration } = props;
+
+
 
   function toggle() {
     setIsActive(!isActive);
@@ -24,7 +27,12 @@ const Timer = (props) => {
           // onTick && onTick(seconds + 1);
           return seconds + 1;
         });
-      }, 100);
+      }, 30);
+      console.log(maxItteration);
+      if (seconds == maxItteration - 1) {
+      clearInterval(interval);
+
+      }
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     }
@@ -35,17 +43,17 @@ const Timer = (props) => {
     <TimerContext.Provider value={seconds}>
       {props.children}
       {/* <div className="itteratorBox"> */}
-        <button
-          className={`button button-primary button-primary-${
-            isActive ? "active" : "inactive"
-          }`}
-          onClick={toggle}
-        >
-          {isActive ? "Pause Itteration" : "Start Itterating"}
-        </button>
-        <button className="button" onClick={reset}>
-          Reset
-        </button>
+      <button
+        className={`button button-primary button-primary-${
+          isActive ? "active" : "inactive"
+        }`}
+        onClick={toggle}
+      >
+        {isActive ? "Pause Itteration" : "Start Itterating"}
+      </button>
+      <button className="button" onClick={reset}>
+        Reset
+      </button>
       {/* </div> */}
     </TimerContext.Provider>
   );
