@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BubbleSort } from "./BubbleSort";
 
 export const TimerContext = React.createContext(0);
 
@@ -24,14 +23,11 @@ const Timer = (props) => {
     if (isActive) {
       interval = setInterval(() => {
         setSeconds((seconds) => {
-          // onTick && onTick(seconds + 1);
           return seconds + 1;
         });
       }, 30);
-      console.log(maxItteration);
       if (seconds == maxItteration - 1) {
       clearInterval(interval);
-
       }
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
@@ -42,7 +38,6 @@ const Timer = (props) => {
   return (
     <TimerContext.Provider value={seconds}>
       {props.children}
-      {/* <div className="itteratorBox"> */}
       <button
         className={`button button-primary button-primary-${
           isActive ? "active" : "inactive"
@@ -54,7 +49,6 @@ const Timer = (props) => {
       <button className="button" onClick={reset}>
         Reset
       </button>
-      {/* </div> */}
     </TimerContext.Provider>
   );
 };
