@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { BubbleSort } from "./BubbleSort";
 
 export const TimerContext = React.createContext(0);
 
 const Timer = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const { maxItteration } = props;
+
+
 
   function toggle() {
     setIsActive(!isActive);
@@ -21,10 +23,12 @@ const Timer = (props) => {
     if (isActive) {
       interval = setInterval(() => {
         setSeconds((seconds) => {
-          // onTick && onTick(seconds + 1);
           return seconds + 1;
         });
-      }, 100);
+      }, 30);
+      if (seconds == maxItteration - 1) {
+      clearInterval(interval);
+      }
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     }
@@ -34,19 +38,17 @@ const Timer = (props) => {
   return (
     <TimerContext.Provider value={seconds}>
       {props.children}
-      {/* <div className="itteratorBox"> */}
-        <button
-          className={`button button-primary button-primary-${
-            isActive ? "active" : "inactive"
-          }`}
-          onClick={toggle}
-        >
-          {isActive ? "Pause Itteration" : "Start Itterating"}
-        </button>
-        <button className="button" onClick={reset}>
-          Reset
-        </button>
-      {/* </div> */}
+      <button
+        className={`button button-primary button-primary-${
+          isActive ? "active" : "inactive"
+        }`}
+        onClick={toggle}
+      >
+        {isActive ? "Pause Itteration" : "Start Itterating"}
+      </button>
+      <button className="button" onClick={reset}>
+        Reset
+      </button>
     </TimerContext.Provider>
   );
 };

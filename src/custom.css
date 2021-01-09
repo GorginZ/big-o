@@ -6,7 +6,7 @@ a {
 code {
   color: #E01A76;
 }
-.inputContainer {
+.bubbleSortContainer {
   text-align: center;
   background-color: #ccb0ff5a;
   min-height: 50vh;
@@ -18,6 +18,19 @@ code {
   color: rgb(78, 78, 78);
 /* ; */
 }
+.mergeSortContainer {
+  text-align: center;
+  background-color: #ffb0b0e8;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(78, 78, 78);
+/* ; */
+}
+
 .inputField {
   display: flex;
 }

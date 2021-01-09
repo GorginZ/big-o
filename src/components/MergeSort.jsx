@@ -4,8 +4,8 @@ import SortBubble from "./SortBubble";
 import Graph from "./Graph";
 import Timer, { TimerContext } from "./Timer";
 
-export class BubbleSort extends Component {
-  static displayName = BubbleSort.name;
+export class MergeSort extends Component {
+  static displayName = MergeSort.name;
 
   constructor(props) {
     super(props);
@@ -29,14 +29,14 @@ export class BubbleSort extends Component {
         <TimerContext.Consumer>
           {(currentItteration) => (
             <>
-              <h1>Bubble Sort</h1>
+              <h1>Merge Sort</h1>
               <div className="mainText">
                 <p>
-                Bubble sort is a very simple sorting alorythm. Bubble sort has an average worst case running time of O(n2). 
+                Merge Sort 
                 </p>
               </div>
 
-              <div className="bubbleSortContainer">
+              <div className="mergeSortContainer">
                 <Graph
                   className="graphElement"
                   data={this.state.collection[currentItteration]}
