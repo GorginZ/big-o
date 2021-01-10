@@ -1,12 +1,11 @@
 // import { Event, event, timers } from "jquery";
 import React, { Component } from "react";
-import SortBubble from "./SortBubble";
+import SortMerge from "./SortMerge";
 import Graph from "./Graph";
 import Timer, { TimerContext } from "./Timer";
 
 export class MergeSort extends Component {
   static displayName = MergeSort.name;
-
   constructor(props) {
     super(props);
 
@@ -17,8 +16,8 @@ export class MergeSort extends Component {
   }
 
   componentDidMount = () => {
-    const temp = 0;
-  this.setState({collection: SortBubble(this.state.inputCollection)});
+  this.setState({collection: SortMerge(this.state.inputCollection)});
+  console.log(this.state.collection);
 
   };
 
@@ -32,7 +31,13 @@ export class MergeSort extends Component {
               <h1>Merge Sort</h1>
               <div className="mainText">
                 <p>
-                Merge Sort 
+                  A divide and conquor algorythm.
+                Merge sort is a efficient algorythm which recursively divides a collection into two equal parts, sorting and then merging the sorted parts.
+                <p>
+ O(nLogn)
+                  big O 
+                </p>
+
                 </p>
               </div>
 
