@@ -11,16 +11,65 @@ export class InsertionSort extends Component {
     super(props);
 
     this.state = {
-    inputCollection: [38,1,4,54,8,39,100,34,2,98,101,32,2,84,12,32,7,43,23,7,2,84,32,12,1,33,54,79,4,58,3,87,3,48,9,77,4,98,23,9,32,3,88,87,4,34,7,3,87,3],
-      collection: []
+      inputCollection: [
+        38,
+        1,
+        4,
+        54,
+        8,
+        39,
+        100,
+        34,
+        2,
+        98,
+        101,
+        32,
+        2,
+        84,
+        12,
+        32,
+        7,
+        43,
+        23,
+        7,
+        2,
+        84,
+        32,
+        12,
+        1,
+        33,
+        54,
+        79,
+        4,
+        58,
+        3,
+        87,
+        3,
+        48,
+        9,
+        77,
+        4,
+        98,
+        23,
+        9,
+        32,
+        3,
+        88,
+        87,
+        4,
+        34,
+        7,
+        3,
+        87,
+        3,
+      ],
+      collection: [],
     };
   }
 
   componentDidMount = () => {
-  this.setState({collection: SortInsertion(this.state.inputCollection)});
-
+    this.setState({ collection: SortInsertion(this.state.inputCollection) });
   };
-
 
   render() {
     return (
@@ -30,8 +79,13 @@ export class InsertionSort extends Component {
             <>
               <h1>Insertion Sort</h1>
               <div className="mainText">
-                <p>
-                </p>
+                <p>Order: O(n*2)</p>
+
+    Best Case Sorted array as input, [ O(N) ]. And O(1) swaps.
+    <br></br>Worst Case: Reversely sorted, and when inner loop makes maximum comparison, [ O(N2) ] . And O(N2) swaps.<br></br>
+    Average Case: [ O(N2) ] . And O(N2) swaps.
+
+
               </div>
 
               <div className="insertionSortContainer">
@@ -47,8 +101,6 @@ export class InsertionSort extends Component {
           )}
         </TimerContext.Consumer>
       </Timer>
-
     );
   }
 }
-

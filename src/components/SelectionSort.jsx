@@ -1,11 +1,11 @@
 // import { Event, event, timers } from "jquery";
 import React, { Component } from "react";
-import SortBubble from "./SortBubble";
+import SortSelection from "./SortSelection";
 import Graph from "./Graph";
 import Timer, { TimerContext } from "./Timer";
 
-export class BubbleSort extends Component {
-  static displayName = BubbleSort.name;
+export class SelectionSort extends Component {
+  static displayName = SelectionSort.name;
 
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ export class BubbleSort extends Component {
   }
 
   componentDidMount = () => {
-  this.setState({collection: SortBubble(this.state.inputCollection)});
+  this.setState({collection: SortSelection(this.state.inputCollection)});
 
   };
 
@@ -28,21 +28,17 @@ export class BubbleSort extends Component {
         <TimerContext.Consumer>
           {(currentItteration) => (
             <>
-              <h1>Bubble Sort</h1>
+              <h1>Selection Sort</h1>
               <div className="mainText">
                 <p>
-                Bubble sort is a very simple sorting alorythm. Bubble sort has an average worst case running time of O(n2). <br></br>
                 <br></br>
 
-    Best Case Sorted array as input. Or almost all elements are in proper place. [ O(N) ]. O(1) swaps.<br></br>
-    Worst Case: Reversely sorted / Very few elements are in proper place. [ O(N2) ] . O(N2) swaps.<br></br>
-    Average Case: [ O(N2) ] . O(N2) swaps.
 
 
                 </p>
               </div>
 
-              <div className="bubbleSortContainer">
+              <div className="selectionSortContainer">
                 <Graph
                   className="graphElement"
                   data={this.state.collection[currentItteration]}
@@ -59,3 +55,4 @@ export class BubbleSort extends Component {
     );
   }
 }
+

@@ -30,6 +30,19 @@ code {
   color: rgb(78, 78, 78);
 /* ; */
 }
+.selectionSortContainer {
+  text-align: center;
+  background-color: #b0ffb45a;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(78, 78, 78);
+/* ; */
+}
+
 
 .mergeSortContainer {
   text-align: center;
