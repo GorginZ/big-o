@@ -17,7 +17,6 @@ export class BubbleSort extends Component {
   }
 
   componentDidMount = () => {
-    const temp = 0;
   this.setState({collection: SortBubble(this.state.inputCollection)});
 
   };

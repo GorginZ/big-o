@@ -1,12 +1,12 @@
 // import { Event, event, timers } from "jquery";
 import React, { Component } from "react";
-import SortMerge from "./SortMerge";
+import SortInsertion from "./SortInsertion";
 import Graph from "./Graph";
 import Timer, { TimerContext } from "./Timer";
-import DivideGraph from "./DivideGraph";
 
-export class MergeSort extends Component {
-  static displayName = MergeSort.name;
+export class InsertionSort extends Component {
+  static displayName = InsertionSort.name;
+
   constructor(props) {
     super(props);
 
@@ -17,10 +17,7 @@ export class MergeSort extends Component {
   }
 
   componentDidMount = () => {
-//   this.setState({collection: SortMerge([this.state.inputCollection])});
-this.state.collection = (SortMerge(this.state.inputCollection));
-console.log(this.state.collection);
-
+  this.setState({collection: SortInsertion(this.state.inputCollection)});
 
   };
 
@@ -31,21 +28,17 @@ console.log(this.state.collection);
         <TimerContext.Consumer>
           {(currentItteration) => (
             <>
-              <h1>Merge Sort</h1>
+              <h1>Insertion Sort</h1>
               <div className="mainText">
                 <p>
-                  A divide and conquor algorythm.
-                Merge sort is a efficient algorythm which recursively divides a collection into two equal parts, sorting and then merging the sorted parts.
-                <p>
- O(nLogn)
-                  big O 
-                </p>
-
                 </p>
               </div>
 
-              <div className="mergeSortContainer">
-                <DivideGraph data={this.state.collection[currentItteration]}></DivideGraph>
+              <div className="insertionSortContainer">
+                <Graph
+                  className="graphElement"
+                  data={this.state.collection[currentItteration]}
+                ></Graph>
               </div>
               <p aria-live="polite">
                 Current itteration: <strong>{currentItteration}</strong>
@@ -58,3 +51,4 @@ console.log(this.state.collection);
     );
   }
 }
+
