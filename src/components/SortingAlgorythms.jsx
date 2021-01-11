@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BubbleSort } from './BubbleSort';
 import { InsertionSort } from './InsertionSort';
 import { MergeSort } from './MergeSort';
+import { SelectionSort } from './SelectionSort';
 
 export class SortingAlgorythms extends Component {
   static displayName = SortingAlgorythms.name;
@@ -14,6 +15,7 @@ export class SortingAlgorythms extends Component {
         <BubbleSort></BubbleSort>
         {/* <MergeSort></MergeSort> */}
         <InsertionSort></InsertionSort>
+        <SelectionSort></SelectionSort>
       </div>
     );
   }

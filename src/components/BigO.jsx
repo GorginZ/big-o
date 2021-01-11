@@ -24,6 +24,8 @@ export class BigO extends Component {
           further reading and references:
           <br></br>
           https://web.mit.edu/16.070/www/lecture/big_o.pdf
+https://www.geeksforgeeks.org/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
+
         </p>
       </div>
     );
