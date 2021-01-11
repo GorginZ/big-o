@@ -4,7 +4,6 @@ const SortInsertion = (collection) => {
   sortedItterations.push([...collection]);
   const n = collection.length;
   for (var i = 1; i < n; ++i) {
-    console.log("al;dfjs");
     let key = collection[i];
     let j = i - 1;
 
