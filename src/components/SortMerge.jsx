@@ -27,8 +27,11 @@ function merge(left, right) {
       result.push(right[rightIndex]);
       rightIndex++;
     }
+  sortedItteration.push([...left]);
+  sortedItteration.push([...right]);
 
   }
-  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+ return sortedItteration; 
+  // return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 export default SortMerge;
