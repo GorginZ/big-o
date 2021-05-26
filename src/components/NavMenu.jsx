@@ -53,8 +53,8 @@ export class NavMenu extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/sorting-algorythms">
-                    Sorting Algorythms
+                  <NavLink tag={Link} className="text-dark" to="/sorting-algorithms">
+                    Sorting Algorithms
                   </NavLink>
                 </NavItem>
               </ul>

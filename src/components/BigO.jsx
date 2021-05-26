@@ -13,11 +13,11 @@ export class BigO extends Component {
         <h1>Big O</h1>
         <p>
           Big O notation (the order of a function) describes the complexity of a
-          function or algorythm. The order of a function indicates its
+          function or algorithm. The order of a function indicates its
           characteristic rate of growth.
           <br></br>
           <br></br>
-          Different algorythms may share the same complexity and be described
+          Different algorithms may share the same complexity and be described
           with the same notation.
          <br></br> 
           two concret examples here
