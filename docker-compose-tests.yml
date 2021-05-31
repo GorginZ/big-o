@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  tests:
+    build: 
+      context: .
+      dockerfile: Dockerfile.test
+      entrypoint: curl-script.sh
+    environment:
+      WAIT_HOSTS: appServer:80
+      volumes:
+        - ./curl-script.sh
+    networks:
+      - test
+  appServer:
+      context: .
+      dockerfile: Dockerfile
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    # restart: always
+    ports:
+      - "80:80"
+    networks:
+      - test
+networks:
+  test:
+

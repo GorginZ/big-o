@@ -1,0 +1,3 @@
+FROM ubuntu:latest AS build-env
+COPY curl-script.sh /usr/local/bin/
+ENTRYPOINT [ "bash", "curl-script.sh" ]
