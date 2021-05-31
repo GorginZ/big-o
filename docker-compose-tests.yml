@@ -5,20 +5,14 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.test
-      entrypoint: curl-script.sh
     environment:
-      WAIT_HOSTS: appServer:80
-      volumes:
-        - ./curl-script.sh
+      WAIT_HOSTS: server:80
     networks:
       - test
-  appServer:
+  server:
+    build:
       context: .
       dockerfile: Dockerfile
-      timeout: 45s
-      interval: 10s
-      retries: 10
-    # restart: always
     ports:
       - "80:80"
     networks:

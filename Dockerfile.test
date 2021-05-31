@@ -1,3 +1,9 @@
 FROM ubuntu:latest AS build-env
 COPY curl-script.sh /usr/local/bin/
-ENTRYPOINT [ "bash", "curl-script.sh" ]
+RUN chmod +x /usr/local/bin/curl-script.sh
+ADD https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz /jq
+RUN chmod +x /jq
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
+# ENTRYPOINT [ "bash", "curl-script.sh" ]
+CMD /wait && curl-script.sh
