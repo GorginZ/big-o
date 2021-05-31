@@ -16,7 +16,7 @@ services:
     healthcheck:
       test: [ "CMD", "curl", "http://server/" ]
       # test: [ "CMD", "curl", "http://localhost/" ]
-      # both server and local host work bc 80:80 maps localhost:80 to server:80
+      # both server and local host work bc 80:80 maps localhost:80 to server:80 so is the host performing the healthcheck?
       timeout: 45s
       interval: 10s
       retries: 10
