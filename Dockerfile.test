@@ -1,9 +1,13 @@
 FROM ubuntu:latest AS build-env
 COPY curl-script.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/curl-script.sh
-ADD https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz /jq
-RUN chmod +x /jq
+RUN apt-get update
+RUN apt-get install curl wget -y
+# ADD https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz /jq
+# RUN chmod +x /jq
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
 RUN chmod +x /wait
+# EXPOSE 80
 # ENTRYPOINT [ "bash", "curl-script.sh" ]
+# CMD sleep 10 && curl-script.sh
 CMD /wait && curl-script.sh
