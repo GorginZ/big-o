@@ -5,7 +5,6 @@ hash curl || die "curl not found"
 
 endpoint=$APP_HOSTNAME
 
-##happy path
 curl $endpoint || die "could not get root" \
 
 
