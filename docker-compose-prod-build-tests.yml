@@ -6,24 +6,25 @@ services:
       context: .
       dockerfile: Dockerfile.tests
     environment:
-      WAIT_HOSTS: server:3000
-      APP_HOSTNAME: server:3000
+      WAIT_HOSTS: server:80
+      APP_HOSTNAME: server:80
     networks:
       - test
   server:
     build:
       context: .
-      dockerfile: Dockerfile.development
+      dockerfile: Dockerfile
     healthcheck:
-      test: [ "CMD", "wget", "-qO", "/dev/null", "http://server:3000/" ]
+      test: [ "CMD", "curl", "http://server/" ]
       timeout: 45s
       interval: 10s
       retries: 10
     restart: always
     ports:
-      - "80:3000"
+      - "80:80"
     networks:
       - test
 networks:
   test:
+
 
