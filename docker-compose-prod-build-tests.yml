@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile.tests
     environment:
       WAIT_HOSTS: server:80
-      APP_HOSTNAME: server:80
+      APP_HOSTNAME: server
     networks:
       - test
   server:
