@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  name: "georgia-service"
+  namespace: "training"
+  labels:
+    app: "georgia"
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: "georgia"

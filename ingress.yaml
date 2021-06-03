@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    "kubernetes.io/tls-acme": "true"
+  name: "georgia-ingress"
+  namespace: "training"
+  labels:
+    app: "georgia"
+spec:
+  rules:
+    - host: "georgia.svc.platform.myobdev.com"
+      http:
+        paths:
+          - backend:
+              serviceName: "georgia-service"
+              servicePort: 80
+            path: /
+  tls:
+    - hosts:
+        - "georgia.svc.platform.myobdev.com"
+      secretName: "georgia-tls"
