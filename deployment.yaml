@@ -18,7 +18,20 @@ spec:
         app: "georgia"
     spec:
       containers:
-        - image: "nginx:alpine"
-          name: nginx
+        - image: "docker.myob.com/jupiter-workshop/georgia-app:georgia"
+          name: georgia
           ports:
             - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 80
+            initialDelaySeconds: 3
+            timeoutSeconds: 8
+            periodSeconds: 10
