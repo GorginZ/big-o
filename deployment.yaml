@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: "georgia-deployment"
-  namespace: "training"
+  namespace: "fma"
   labels:
     app: "georgia"
 spec:
@@ -30,7 +30,7 @@ spec:
             periodSeconds: 3
           readinessProbe:
             httpGet:
-              path: /ready
+              path: /
               port: 80
             initialDelaySeconds: 3
             timeoutSeconds: 8

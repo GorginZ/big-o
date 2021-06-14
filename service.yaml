@@ -5,7 +5,7 @@ metadata:
   annotations:
     prometheus.io/scrape: "true"
   name: "georgia-service"
-  namespace: "training"
+  namespace: "fma"
   labels:
     app: "georgia"
 spec:

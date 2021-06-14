@@ -5,7 +5,7 @@ metadata:
   annotations:
     "kubernetes.io/tls-acme": "true"
   name: "georgia-ingress"
-  namespace: "training"
+  namespace: "fma"
   labels:
     app: "georgia"
 spec:
