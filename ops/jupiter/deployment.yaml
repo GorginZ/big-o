@@ -1,4 +1,3 @@
-# This is an example of a deployment - a declaration of pods.
 ---
 apiVersion: apps/v1
 kind: Deployment
